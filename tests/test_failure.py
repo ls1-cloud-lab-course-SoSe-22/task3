@@ -60,7 +60,7 @@ class Tester:
                     leader = True
                 self.servers.append(
                     run_server(self.kvs_port_start + i, leader,
-                               self.raft_ports, i, self.debug))
+                               self.raft_ports, i))
 
             # wait for completion of a leader election (if any)
             sleep(5)
