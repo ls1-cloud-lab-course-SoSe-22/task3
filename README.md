@@ -68,7 +68,7 @@ Then a client can send a request to the leader server like the following.
 #### Implementation hint
 - In the original raft algorithm, a leader election would be conducted first,
   but in this task, the leader can be determined by command line parameters.
-- You can assume there are no failures during the test.
+- You can assume there are no failures during the test 3.1.
 - The first index of raft log entries is one in the paper.
 - If a follower server (non-leader server) receives a request other than
   DIRECT_GET from a client, it should discard it and return an error.
@@ -96,6 +96,9 @@ each server.
 
 ### Test 3.3
 Same as Test 3.2, but with 5 servers.
+
+### Test 3.4
+Basically same as Test 3.3, but servers are randomly killed during operations.
 
 ## Going further
 Raft paper [2] describes several additional features and optimization methods
