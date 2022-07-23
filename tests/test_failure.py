@@ -115,8 +115,7 @@ class Tester:
                 if not server_alive[i]:
                     info(f"Restart server #{i}")
                     self.servers[i] = run_server(self.kvs_port_start + i,
-                                                 False, self.raft_ports, i,
-                                                 self.debug)
+                                                 False, self.raft_ports, i)
                     num_server_active += 1
                     server_alive[i] = True
                     sleep(5)
@@ -137,7 +136,7 @@ class Tester:
             if not server_alive[i]:
                 info(f"Restart server #{i}")
                 self.servers[i] = run_server(self.kvs_port_start + i, False,
-                                             self.raft_ports, i, self.debug)
+                                             self.raft_ports, i)
         sleep(10)
 
         for k, v in kvs.items():
@@ -206,7 +205,7 @@ class Tester:
         # restart the server
         self.servers.append(
             run_server(self.kvs_port_start + killed_server_id, False,
-                       self.raft_ports, killed_server_id, self.debug))
+                       self.raft_ports, killed_server_id))
         sleep(5)
 
         for k, v in kvs.items():
